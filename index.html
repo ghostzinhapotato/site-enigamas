@@ -1,68 +1,27 @@
-<!DOCTYPE html> 
-    <html lang="en"> 
-        <head> 
-            <meta charset="UTF-8"> 
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-            <title>Fase 1</title> 
-            <link rel="stylesheet" type="text/css" href="estilo.css">
-            
-            <script> 
-        // Desabilita a funcionalidade de voltar do navegador
-        history.pushState(null, null, document.html);
-        window.addEventListener('popstate', function () {
-            history.pushState(null, null, document.html);
-        });
-            function validarResposta(event) {
-    if (event.key === "Enter") {
-        verificarResposta();
-    }
-}
-                function verificarResposta() { 
-                    
-                    var r1 = document.getElementById("resposta").value; 
-        
-                    if (r1.toLowerCase() === "veni vidi vici") { 
-                        window.location.href = "Fase2.html"; 
-                    } 
-                    else { 
-                        alert("Resposta incorreta. Tente novamente."); 
-                    } 
-                   
-                }
-                
-                function mostrarAviso() {
-                    var caixaAviso = document.getElementById("caixa-aviso");
-                    caixaAviso.style.display = "block";
-                }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seja bem vindo</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
 
-                function fecharAviso() {
-                    var caixaAviso = document.getElementById("caixa-aviso");
-                    caixaAviso.style.display = "none";
-                }
-            
-            </script> 
-        </head> 
-        
-        <body class="body"> 
-           <div class="fundotodo">
+    <body class="body"> 
+        <div class="fundotodo">
+            <h1>Aceita entrar nessa viagem?</h1>
+            <img src="img/inicio.jpg">
+            <button onclick="redirecionarParaPagina('sim')">Sim</button>
+            <button onclick="redirecionarParaPagina('nao')">Não</button>
 
-                <h1>Julio César</h1> 
-                <p>clup,cpkp,cpjp</p>
-                <label for="resposta">Digite a respota:</label> 
-                <input type="text" id="resposta" onkeypress="validarResposta(event)"> 
-               
-                <div class="caixa-botao">
-                    <button class="botao-verificar" onclick="verificarResposta()">Verificar</button> 
-                    <button class="botao-dica" onclick="mostrarAviso()">Dica</button>
-                </div>
-
-              
-                
-           </div>
-           <div class="caixa-aviso" id="caixa-aviso">
-            <span class="fechar" id="fechar-aviso" onclick="fecharAviso()">&times;</span>
-            <p>G-7=A</p>
-        </div>
-          
-        </body> 
+    <script>
+        function redirecionarParaPagina(resposta) {
+            if (resposta === 'sim') {
+                window.location.href = 'Fase1.html'; // Redireciona para a página "pagina_sim.html"
+            } else if (resposta === 'nao') {
+                window.location.href = 'Tristeza.html'; // Redireciona para a página "pagina_nao.html"
+            }
+        }
+    </script>
+    </body>
+</head>
 </html>
