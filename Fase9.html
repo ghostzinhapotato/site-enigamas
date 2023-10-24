@@ -1,0 +1,67 @@
+<!DOCTYPE html> 
+    <html lang="en"> 
+        <head> 
+            <meta charset="UTF-8"> 
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+            <title>Fase 9</title> 
+            <link rel="stylesheet" type="text/css" href="estilo.css">
+            
+            <script> 
+            history.pushState(null, null, document.html);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.html);
+        });
+            function validarResposta(event) {
+    if (event.key === "Enter") {
+        verificarResposta();
+    }
+}
+                function verificarResposta() { 
+                    
+                    var r9 = document.getElementById("resposta").value; 
+        
+                    if (r9.toLowerCase() === "sputnik") { 
+                        window.location.href = "Fase10.html"; 
+                    } 
+                    else { 
+                        alert("Resposta incorreta. Tente novamente."); 
+                    } 
+                   
+                }
+                
+                function mostrarAviso() {
+                    var caixaAviso = document.getElementById("caixa-aviso");
+                    caixaAviso.style.display = "block";
+                }
+
+                function fecharAviso() {
+                    var caixaAviso = document.getElementById("caixa-aviso");
+                    caixaAviso.style.display = "none";
+                }
+            
+            </script> 
+        </head> 
+        
+        <body class="body"> 
+           <div class="fundotodo">
+
+                <h1>Na corrida espacial, fui um dos primeiros.</h1> 
+                <p>orbita</p>
+                <label for="resposta">Digite a respota:</label> 
+                <input type="text" id="resposta" onkeypress="validarResposta(event)"> 
+               
+                <div class="caixa-botao">
+                    <button class="botao-verificar" onclick="verificarResposta()">Verificar</button> 
+                    <button class="botao-dica" onclick="mostrarAviso()">Dica</button>
+                </div>
+
+              
+                
+           </div>
+           <div class="caixa-aviso" id="caixa-aviso">
+            <span class="fechar" id="fechar-aviso" onclick="fecharAviso()">&times;</span>
+            <p>união sovietica</p>
+        </div>
+          
+        </body> 
+</html>
